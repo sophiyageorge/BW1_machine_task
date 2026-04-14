@@ -57,13 +57,10 @@ REQUEST_LATENCY = Histogram("request_latency_seconds", "Request latency")
 # -----------------------------------------------------------------------------
 
 class IrisInput(BaseModel):
-    """
-    Input schema for Iris prediction.
-    """
-    sepal_length: float = Field(..., gt=0, description="Sepal length in cm")
-    sepal_width: float = Field(..., gt=0, description="Sepal width in cm")
-    petal_length: float = Field(..., gt=0, description="Petal length in cm")
-    petal_width: float = Field(..., gt=0, description="Petal width in cm")
+    sepal_length: float
+    sepal_width: float
+    petal_length: float
+    petal_width: float
 
 
 # -----------------------------------------------------------------------------
@@ -78,7 +75,7 @@ def home() -> dict:
     Returns:
         dict: API status message
     """
-    return {"message": "ML Model API Running 🚀"}
+    return {"message": "ML Model API Running"}
 
 
 @app.get("/metrics")
